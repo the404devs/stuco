@@ -1,0 +1,350 @@
+* {
+    box-sizing: border-box;
+}
+
+/*Import our special font*/
+@font-face{
+    font-family: "highway_gothic";
+    src: url("font/HWYGOTH.TTF");
+}
+
+.header {
+    padding: 10px;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+    font-family: "highway_gothic";
+    margin-left: 0px;
+    height: 50%;
+    text-shadow: 2px 2px #000000;
+    background-image: url(../images/testbg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+
+.footer {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    font-family: "Segoe UI";
+    color: white;
+    margin-left: 0px;
+}
+
+.content {
+  align-self: center;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.7);
+  font-family: "highway_gothic";
+  color: black;
+  height: 75%;
+}
+
+.content p{
+    font-size: 20px;
+}
+
+body
+{
+    margin: 0;
+    font-family: "Segoe UI";
+    background-color: maroon;
+}
+
+hr
+{
+    margin-top: 0;
+    margin-left: 0px;
+    color: #000000;
+    border-color: #000000;
+    border-width: 2px;
+    border-style: single;
+    border-radius: 1px;
+}
+
+.wrapper{
+    bottom: 0;
+    text-align: center;
+    color: black;
+    text-shadow: none;
+    border-bottom-style: solid;
+    border-bottom-color: lightblue;
+    border-bottom-width: 5px; 
+}
+
+
+button {
+    border-radius: 4px;
+    background-color: #000000;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    width: auto;
+    padding: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: auto;
+    font-family: "mario";
+    overflow: hidden;
+    margin: 5px;
+}
+
+
+button:hover {
+    background-color: silver;
+    color: black;
+}
+
+.signOut{
+    position: absolute;
+    right: 0;
+}
+
+.tab {
+    height: 40px;
+    width: 30%;
+    margin: 2px;
+    font-size: 20px;
+    font-family: "Segoe UI";
+    background-color: #717171;
+    border-radius: 10px 10px 0 0;
+    border-color: lightblue;
+    color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-bottom-style: none;
+    display: inline-block;
+    position: relative;
+    transition: background-color 0.6s ease;
+    vertical-align: bottom;
+    text-align: center;
+    padding-top: 5px;
+    top: 2px;
+}
+
+.tab:hover {
+    background-color: #3ca1c3;
+    color: black;
+    transition: 0.5s;
+
+}
+
+#leftTab{
+    left: -50px;
+}
+
+#rightTab{
+    right: -50px;
+}
+
+.active {
+  background-color: lightblue;
+  color: black;
+}
+
+.slide-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    z-index: 0;
+    vertical-align: middle;
+    background-color: #717171;
+    text-shadow: none;
+    border-radius: 10px;
+}
+
+.slide {
+    display: none;
+    padding: 10px;
+    background-color: lightblue;
+    border-radius: 0 0 10px 10px;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+#posts {
+    position: relative;
+    overflow-y: scroll;
+    margin: 0;
+    height: 85%;
+    z-index: 1001;
+    width: 100%;
+}
+
+.posts{
+    border-bottom: ridge white 5px; 
+    width: 100%;
+}
+
+.container-fluid {
+    position: relative;
+    padding: 0;
+    height: 100%;
+}
+
+.page-r {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 700px;
+    padding: 15px;    
+    z-index: 100001;
+    border-radius: 10px;
+}
+
+.page-l {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 700px;
+    z-index: 100001;
+    border-radius: 10px;
+}
+
+#Ptitle {
+    margin-top: 0;
+    position: relative;
+    text-align: center;
+    border-bottom: ridge white 10px; 
+    font-size: 40px;
+}
+
+.section{
+    font-family: "Segoe UI";
+}
+
+.body{
+    overflow-y: hidden;
+}
+
+
+table {
+    border-color: transparent;
+}
+
+.row {
+    width: auto;
+    height: 33.33% !important;
+}
+
+#one{
+    top: 38%;  
+}
+
+#two{
+    top: 0.5%;
+    padding: 0; 
+    margin: 0;
+}
+
+#three{
+    top: 0%;
+}
+
+#filler {
+    position: relative;
+    height: 38rem;
+}
+
+#buttons {
+    position: relative;
+    height: inherit;
+    float: right;
+}
+
+#calendar {
+    position: relative;
+    margin: 15px;
+}
+
+tbody {
+    height: 500px;
+}
+
+.footLink {
+    color: white;
+    text-decoration: none;
+}
+
+h2{
+    font-size: 40px;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    font-family: "Segoe UI";
+    display: block;
+    width: 70%;
+    height: 50%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h4{
+    margin: 10px;
+}
+
+.modal-body p{
+    margin: 10px;
+}
+
+.modal-title{
+    font-size: 30px;
+    border-bottom: ridge white 10px; 
+}
+
+input {
+    margin-left: 10px;
+    width: 80%;
+}
+
+.emailAdd {
+    align-self: center;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.7);
+    font-family: "highway_gothic";
+    color: black;
+    height: 75%;
+}
+
+.emailAddInput {
+    width: 40%;
+}

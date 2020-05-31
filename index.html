@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SDSS Council</title>
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/2347420355/er5ynjm85c27o8f3u4nu.jpeg" type="image/gif">
+    <!--//////// CSS ///////////-->
+    <!-- Jquery.Scollbar CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Iconate CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/iconate/0.2.7/iconate.min.css">
+    <!-- BootStrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Full Calendar CSS -->
+    <link rel="stylesheet" type="text/css" href="full/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="full/fullcalendar.print.min.css" media='print'>
+    <!-- FullPage CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css">
+    <!--My CSS-->
+    <link rel="stylesheet" href="sheet.css">
+</head>
+
+<body>
+    <div id="fullpage">
+        <div class="section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="mRight">
+                        <div id="weather"></div>
+                        <!--<p>this is for the weather</p>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <h1>&#32;</h1>
+                </div>
+                <div class="row">
+                    <div class="logo">
+                        <h1 id="logoT">SDSS Student Council</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container-fluid">
+                <div class="body">
+                    <div class="page-r">
+                        <br />
+                        <h1 id="Ptitle" class="text-center">Posts</h1>
+                        <div id="posts"></div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container-fluid">
+                <div class="body">
+                    <div class="page-l">
+                        <div id="loading">...</div>
+                        <div id="calendar"></div>
+                        <p id="footer"><a href="exec.html">Developed by Zeeshan</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <video autoplay loop muted>
+        <source src="trailer_1080p.mp4" type="video/mp4">
+        <source src="trailer_1080p.mov" type="video/mov">
+        <source src="trailer_1080p.webm" type="video/webm"> Your browser does not support the video tag.
+    </video>
+    <div id="imgModal" class="modal2">
+        <span class="close">&times;</span>
+        <img class="modal-content2" id="img01">
+    </div>
+</body>
+<!--////////// JS //////////-->
+<!-- Firebase JS-->
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<!--// Initialize Firebase-->
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA7BL5xFHf6wOdfoY53XXplHAVhTSVUMtY",
+    authDomain: "sdss-stuco-site.firebaseapp.com",
+    databaseURL: "https://sdss-stuco-site.firebaseio.com",
+    projectId: "sdss-stuco-site",
+    storageBucket: "sdss-stuco-site.appspot.com",
+    messagingSenderId: "171773699892"
+  };
+  firebase.initializeApp(config);
+</script>
+<!-- Jquery JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<!-- Jquery.Scollbar JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.js"></script>
+<!-- BootStrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Full Calendar JS -->
+<script src="full/lib/moment.min.js"></script>
+<script src="full/lib/jquery.min.js"></script>
+<script src='full/fullcalendar.min.js'></script>
+<script src='full/gcal.min.js'></script>
+<!-- FullPage JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js'></script>
+<!-- Iconate JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iconate/0.2.7/iconate.min.js"></script>
+<!-- NiceScroll JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/vendors/jquery.easings.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/vendors/scrolloverflow.min.js"></script>
+<!-- My JS-->
+<script src="script.js"></script>
+<!-- Google Analytics-->
+<script>
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-104543948-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+</html>

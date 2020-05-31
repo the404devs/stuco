@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head> 
+		<title> 
+			SDSS Student Council
+		</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/sheetNEW.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- Full Calendar CSS -->
+    	<link rel="stylesheet" type="text/css" href="full/fullcalendar.min.css">
+    	<link rel="stylesheet" type="text/css" href="full/fullcalendar.print.min.css" media='print'>
+        <!-- FullPage CSS -->
+    	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css">
+		<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="js/scripts.js"></script>
+	</head>
+
+	<body>
+		<div id="main">
+			<div class="header">
+				<button class="signOut" onclick="signOut()">Log Out</button>
+				<h1>
+					SDSS Student Council
+				</h1> 
+				<h3>Executive Portal</h3>
+			</div>
+			<hr>
+
+			<div class="content">
+				<p>
+					Welcome to the Executive Portal. Owen wants an executive login.
+				</p>
+				<div class="emailAdd">
+						<label>Add your email:</label>
+						<br>
+						<input class = "emailAddInput" type="email" id="addEmail" name="userName" placeholder="email@email.com">
+						<br>
+                		<button onclick="addEmail()">Add</button>
+                		<br>
+           		</div>
+                			
+				<div class="slide-container">
+
+					<div class="wrapper" style="text-align:center">
+				  		<span class="tab" id="leftTab" onclick="currentSlide(1)"><b>Posts</b></span> 
+				  		<span class="tab" id="rightTab" onclick="currentSlide(2)"><b>Calendar</b></span> 
+					</div>
+
+					<div class="slide fade">
+						<div class="section">
+		                    <div class="body">
+		                        <button onclick="$('#postBox').modal()">Post Update</button>
+		                        <div class="page-r">
+		                            <br>
+		                            <h1 id="Ptitle" class="text-center">Posts</h1>
+		                            <div id="posts"></div>
+		                            <br>
+		                        </div>
+		                    </div>							
+						</div>
+				
+		  				<br>
+					</div>
+
+					<div class="slide fade">
+						<div class="section">
+				            <div class="container-fluid">
+			                <div class="container-fluid">
+			                    <div class="body">
+			                        <div class="page-r">
+			                            <div id="loading">...</div>
+			                            <div id="calendar"></div>
+			                        </div>
+			                    </div>
+			                </div>
+				        </div>
+		  				<br>
+					</div>
+				</div>
+			</div>
+
+
+		    <div class="modal fade" id="loginBox">
+
+		        <div class="modal-dialog">
+
+		            <div class="modal-content" style="width:70%; ">
+
+		                <div class="modal-header">
+		                    <h4 class="modal-title">Login</h4>
+		                </div>
+
+		                <div class="modal-body">		                	
+		                    <p>User:</p>
+		                    <input type="email" id="userName" name="userName" placeholder="email@email.com">
+		                    <br>
+		                    <p>Password:</p>
+		                    <input type="password" id="_passwd" name="_passwd" placeholder="Password">
+		                </div>
+
+		                <br>
+
+		                <div class="modal-footer">
+		                    <button class="button" onclick="passReset();">Reset password</button>
+		                    <button class="button" type="button" class="btn btn-primary" onclick="FBlogin()">Login</button>
+		                </div>
+
+		            </div>
+
+		        </div>
+		    </div>
+
+		    <div class="modal fade" id="editBox" role="dialog">
+
+		        <div class="modal-dialog">
+
+		            <div class="modal-content">
+
+		                <div class="modal-header">
+		                    <h4 class="modal-title">Edit post</h4>
+		                </div>
+
+		                <div class="modal-body">
+		                    <p>Title:</p>
+		                    <input type="text" id="edTitle">
+		                    <p>Text:</p>
+		                    <textarea name="edText" id="edText" rows="10" cols="80">
+		                        Type message here...
+		                    </textarea>
+		                </div>
+
+		                <div class="modal-footer">
+		                    <button onclick="EditPush();" href="javascript:;">Push Edit</button>
+		                </div>
+
+		            </div>
+
+		        </div>
+		    </div>
+
+		    <div class="modal fade" id="emailBox" role="dialog">
+
+		        <div class="modal-dialog">
+
+		            <div class="modal-content">
+
+		                <div class="modal-header">
+		                    <h4 class="modal-title">Send Email</h4>
+		                </div>
+
+		                <div class="modal-body">
+		                    <p>Subject:</p>
+		                    <input type="text" id="emTitle">
+		                    <p>Body:</p>
+		                    <textarea name="emBody" id="emBody" rows="10" cols="80">
+		                        Type message here...
+		                    </textarea>
+		                    <br>
+		                    <input type="text" id="emUrl" disabled>
+
+		                    <div class="dropdown">
+		                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Send To
+		                            <span class="caret"></span></button>
+		                        <ul class="dropdown-menu" id="email">
+		                        </ul>
+		                    </div>
+		                </div>
+
+		                <div class="modal-footer">
+		                    <button onclick="pushEmail()" href="javascript:;">Send Email</button>
+		                </div>
+
+		            </div>
+
+		        </div>
+		    </div>
+
+		    <div class="modal fade" id="postBox" role="dialog">
+
+		        <div class="modal-dialog">
+
+		            <div class="modal-content">
+
+		                <div class="modal-header">
+		                    <h4 class="modal-title">Post Update</h4>
+		                </div>
+
+		                <div class="modal-body">
+		                    <input type="text" id="title" placeholder="Title">
+		                    <br>
+		                    <textarea name="editor1" id="editor1" rows="10" cols="80">
+		                        Type message here...
+		                    </textarea>
+		                    <input type="file" onchange="previewFile()" id="files" name="files[]" accept="image/*" />
+		                </div>
+
+		                <div class="modal-footer">
+		                    <button id="post" onclick="submit();">Post</button>
+		                </div>
+
+		            </div>
+
+		        </div>
+		    </div>	
+
+			<div class="footer">
+				<p> 					
+					<a class="footLink" href="execNEW.html">Developed by Owen Goodwin and Zeeshan Badr</a>
+				</p>					
+			</div>
+		</div>
+	</body>
+
+	<!--////////// JS //////////-->
+	<!-- Firebase JS-->
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	<!--// Initialize Firebase-->
+	<script>
+		// Initialize Firebase
+		var config = {
+		    apiKey: "AIzaSyA7BL5xFHf6wOdfoY53XXplHAVhTSVUMtY",
+		    authDomain: "sdss-stuco-site.firebaseapp.com",
+		    databaseURL: "https://sdss-stuco-site.firebaseio.com",
+		    projectId: "sdss-stuco-site",
+		    storageBucket: "sdss-stuco-site.appspot.com",
+		    messagingSenderId: "171773699892"
+		};
+		firebase.initializeApp(config);
+	</script>
+	<!-- Jquery JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<!-- BootStrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Full Calendar JS -->
+	<script src="full/lib/moment.min.js"></script>
+	<script src='full/fullcalendar.min.js'></script>
+	<script src='full/gcal.min.js'></script>
+	<!-- FullPage JS -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js'></script>
+	<!-- Editor -->
+	<script src="ckeditor/ckeditor.js"></script>
+	<!-- Email JS -->
+	<script src="https://smtpjs.com/smtp.js"></script>
+	<!-- My JS-->
+	<script src="js/script2.js"></script>
+	<script type="text/javascript">
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		// Next/previous controls
+		function plusSlides(n) {
+		  showSlides(slideIndex += n);
+		}
+
+		// tabs controls
+		function currentSlide(n) {
+		  showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+		  var i;
+		  var slides = document.getElementsByClassName("slide");
+		  var tabs = document.getElementsByClassName("tab");
+		  if (n > slides.length) {slideIndex = 1} 
+		  if (n < 1) {slideIndex = slides.length}
+		  for (i = 0; i < slides.length; i++) {
+		      slides[i].style.display = "none"; 
+		  }
+		  for (i = 0; i < tabs.length; i++) {
+		      tabs[i].className = tabs[i].className.replace(" active", "");
+		  }
+		  slides[slideIndex-1].style.display = "block"; 
+		  tabs[slideIndex-1].className += " active";
+		  window.scrollTo(0, 0);
+		}
+	</script>
+	<!-- Google Analytics-->
+	<script>
+	(function(i, s, o, g, r, a, m) {
+	    i['GoogleAnalyticsObject'] = r;
+	    i[r] = i[r] || function() {
+	        (i[r].q = i[r].q || []).push(arguments)
+	    }, i[r].l = 1 * new Date();
+	    a = s.createElement(o),
+	        m = s.getElementsByTagName(o)[0];
+	    a.async = 1;
+	    a.src = g;
+	    m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+	ga('create', 'UA-104543948-1', 'auto');
+	ga('send', 'pageview');
+	</script>
+</html>

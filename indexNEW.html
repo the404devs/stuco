@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head> 
+		<title> 
+			SDSS Student Council
+		</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/sheetNEW.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!--//////// CSS ///////////-->
+    	<!-- Full Calendar CSS -->
+    	<link rel="stylesheet" type="text/css" href="full/fullcalendar.min.css">
+    	<link rel="stylesheet" type="text/css" href="full/fullcalendar.print.min.css" media='print'>
+        <!-- FullPage CSS -->
+    	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css">
+		<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="js/scripts.js"></script>
+	</head>
+
+	<body>
+		<div id="main">
+
+			<div class="header">
+				<h1>
+					SDSS Student Council
+				</h1> 
+			</div>
+			<hr>
+
+			<div class="content">
+				<p>
+					Welcome to the new and improved Student Council website!
+				</p>
+
+				<div class="slide-container">
+
+					<div class="wrapper" style="text-align:center">
+				  		<span class="tab" id="leftTab" onclick="currentSlide(1)"><b>Posts</b></span> 
+				  		<span class="tab" id="rightTab" onclick="currentSlide(2)"><b>Calendar</b></span> 
+					</div>
+
+					<div class="slide fade">
+				        <div class="section">
+				            <div class="container-fluid">
+				                <div class="body">
+				                    <div class="page-r">
+				                        <br>
+				                        <h1 id="Ptitle">Posts</h1>
+				                        <div id="posts"></div>
+				                        <br>
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
+		  				<br>
+					</div>
+
+					<div class="slide fade">
+						<div class="section">
+				            <div class="container-fluid">
+				                <div class="body">
+				                    <div class="page-l">
+				                        <div id="loading">...</div>
+				                        <div id="calendar"></div>
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
+		  				<br>
+					</div>
+				</div>
+			</div>			
+
+			<div class="footer">
+				<p> 					
+					<a class="footLink" href="execNEW.html">Developed by Owen Goodwin and Zeeshan Badr</a>
+				</p>
+
+			</div>
+		</div>
+	</body>
+
+	<!--////////// JS //////////-->
+	<!-- Firebase JS-->
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	<!--// Initialize Firebase-->
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyA7BL5xFHf6wOdfoY53XXplHAVhTSVUMtY",
+	    authDomain: "sdss-stuco-site.firebaseapp.com",
+	    databaseURL: "https://sdss-stuco-site.firebaseio.com",
+	    projectId: "sdss-stuco-site",
+	    storageBucket: "sdss-stuco-site.appspot.com",
+	    messagingSenderId: "171773699892"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<!-- Jquery JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+	<!-- BootStrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Full Calendar JS -->
+	<script src="full/lib/moment.min.js"></script>
+	<script src="full/lib/jquery.min.js"></script>
+	<script src='full/fullcalendar.min.js'></script>
+	<script src='full/gcal.min.js'></script>
+	<!-- FullPage JS -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js'></script>
+	<!-- My JS-->
+	<script src="js/script.js"></script>
+	<script type="text/javascript">
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		// Next/previous controls
+		function plusSlides(n) {
+		  showSlides(slideIndex += n);
+		}
+
+		// tabs controls
+		function currentSlide(n) {
+		  showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+		  var i;
+		  var slides = document.getElementsByClassName("slide");
+		  var tabs = document.getElementsByClassName("tab");
+		  if (n > slides.length) {slideIndex = 1} 
+		  if (n < 1) {slideIndex = slides.length}
+		  for (i = 0; i < slides.length; i++) {
+		      slides[i].style.display = "none"; 
+		  }
+		  for (i = 0; i < tabs.length; i++) {
+		      tabs[i].className = tabs[i].className.replace(" active", "");
+		  }
+		  slides[slideIndex-1].style.display = "block"; 
+		  tabs[slideIndex-1].className += " active";
+		  window.scrollTo(0, 0);
+		}
+	</script>
+	<!-- Google Analytics-->
+	<script>
+	(function(i, s, o, g, r, a, m) {
+	    i['GoogleAnalyticsObject'] = r;
+	    i[r] = i[r] || function() {
+	        (i[r].q = i[r].q || []).push(arguments)
+	    }, i[r].l = 1 * new Date();
+	    a = s.createElement(o),
+	        m = s.getElementsByTagName(o)[0];
+	    a.async = 1;
+	    a.src = g;
+	    m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+	ga('create', 'UA-104543948-1', 'auto');
+	ga('send', 'pageview');
+	</script>
+</html>
